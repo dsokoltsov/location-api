@@ -1,6 +1,12 @@
 import { all } from 'redux-saga/effects';
-import { userSaga } from './countrySaga';
+import { countrySaga } from './countrySaga';
+import { stateSaga } from './stateSaga';
+import { citySaga } from './citySaga';
 
 export default function* rootSaga() {
-  yield all([...userSaga]);
+  yield all([
+    ...countrySaga,
+    ...stateSaga,
+    ...citySaga,
+  ]);
 }

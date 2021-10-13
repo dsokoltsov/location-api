@@ -1,0 +1,14 @@
+.main {
+  display: grid;
+  height: 60vh;
+}
+
+.main__wrapper {
+  margin: auto;
+  width: 400px;
+  overflow-x: visible;
+}
+
+.main__result {
+  white-space: nowrap;
+}

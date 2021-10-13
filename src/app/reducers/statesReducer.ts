@@ -1,19 +1,22 @@
-import { AnyAction } from 'redux'
+import ActionTypes from '../unionActionTypes';
+import { SelectorData } from '../../globals';
 import actionTypes from '../actionTypes';
 
 interface StatesState {
-  states: object[],
+  states: SelectorData[],
+  selected: SelectorData | null,
   isLoading: boolean,
   isError: boolean,
 }
 
 const initialState: StatesState = {
   states: [{}],
+  selected: null,
   isLoading: false,
   isError: false,
 };
 
-export default function userReducer(state = initialState, action: AnyAction) {
+export default function userReducer(state = initialState, action: ActionTypes) {
   switch (action.type) {
     case actionTypes.REQUESTED_STATE_DATA:
       return {
@@ -34,6 +37,11 @@ export default function userReducer(state = initialState, action: AnyAction) {
         isError: true,
         isLoading: false,
       };
+    case actionTypes.SET_SELECTED_STATE:
+        return {
+          ...state,
+          selected: action.data,
+        };
     default:
       return state;
   }

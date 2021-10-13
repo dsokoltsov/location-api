@@ -12,10 +12,10 @@ export function fetchCountriesData() {
   return instance.get(`https://www.universal-tutorial.com/api/countries`, config);
 }
 
-export function fetchStateData(country: string) {
+export function fetchStatesData(country: string) {
   return instance.get(`https://www.universal-tutorial.com/api/states/${country}`, config);
 }
 
-export function fetchCityData(state: string) {
+export function fetchCitiesData(state: string) {
   return instance.get(`https://www.universal-tutorial.com/api/cities/${state}`, config);
 }

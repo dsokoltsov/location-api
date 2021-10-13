@@ -1,10 +1,13 @@
-import { ReactComponent as Chevron } from '../../assets/icons/chevron-down.svg';
+// import { ReactComponent as Chevron } from '../../assets/icons/chevron-down.svg';
+import './Selector.css';
 
 interface SelectorData {
   [name: string]: string;
 }
 
-function Selector(props: {selectArray: SelectorData[], selectCallback: (arg: SelectorData) => void, selected: SelectorData | null}) {
+type SelectorName = 'country' | 'state' | 'city';
+
+function Selector(props: {selectArray: SelectorData[], selectCallback: (arg: SelectorData) => void, selected: SelectorData | null, name: SelectorName}) {
 
   function getName(object: SelectorData | null) {
     if(object) {
@@ -26,10 +29,8 @@ function Selector(props: {selectArray: SelectorData[], selectCallback: (arg: Sel
 
   return (
     <div className="selector">
-      <Chevron />
-      <div>{getName(props.selected)}</div>  
       <select value={ getName(props.selected) } onChange={ (e: React.ChangeEvent<HTMLSelectElement>) => handleSelect(e) }>
-        <option value="" selected disabled hidden>Choose here</option>
+        <option value="" selected disabled hidden>Choose {props.name}</option>
         {
           props.selectArray.map((item: SelectorData) => {
             return (

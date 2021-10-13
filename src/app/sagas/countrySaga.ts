@@ -24,4 +24,4 @@ function* fetchCountriesDataAsync() {
 export default function* watchFetchCountriesData() {
   yield takeEvery('FETCH_COUNTRIES', fetchCountriesDataAsync);
 }
-export const userSaga = [fork(watchFetchCountriesData)];
+export const countrySaga = [fork(watchFetchCountriesData)];

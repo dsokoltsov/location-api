@@ -4,6 +4,7 @@ import logger from "redux-logger";
 
 import countryReducer from './reducers/countryReducer';
 import statesReducer from './reducers/statesReducer';
+import cityReducer from './reducers/cityReducer';
 
 import rootSaga from './sagas/rootSaga';
 
@@ -13,6 +14,7 @@ const store = configureStore({
   reducer: {
     country: countryReducer,
     state: statesReducer,
+    city: cityReducer,
   },
   devTools: true,
   middleware: [sagaMiddleware, logger],
